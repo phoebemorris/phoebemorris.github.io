@@ -1,0 +1,16 @@
+main {
+    position: relative;
+    background: @clr-white;
+    padding-left: 0;
+    font-size: 0;
+    transition: right 0.2s ease-out;
+
+    .responsive-when-small-or-medium({
+        padding-top: 0px;
+        padding-left: 0px;
+    });
+
+    .responsive-when-small({
+      padding-top: 200px;
+    });
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    <div class="container">
+
+      {% include header.html %}
+
+      <main>
+        <div class="max-width-container">
+          <div class="contact">
+            <div class="details">
+              {% for detail in page.contact %}
+              <div class="detail">
+                <h3>{{ detail.label }}</h3>
+                <a href="{{ detail.link }}">{{ detail.value }}</a>
+              </div>
+              {% endfor %}
+            </div>
+
+            <div class="form">
+              <input id="name" type="text" placeholder="{{ page.form.name.placeholder }}">
+              <input id="email" type="email" placeholder="{{ page.form.email.placeholder }}">
+              <textarea id="message" placeholder="{{ page.form.message.placeholder }}" rows="5"></textarea>
+              <button id="send" type="button">{{ page.form.button.idle }}</button>
+            </div>
+
+          </div>
+        </div>
+      </main>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+
+      var _name = $('#name');
+      var _email = $('#email');
+      var _message = $('#message');
+      var _button = $('#send');
+
+      $('input, textarea').focus(function () {
+        _button.text('{{ page.form.button.idle }}');
+      });
+
+      $('.contact button').click(function () {
+
+        var data = {
+          message: _message.val(),
+          email: _email.val(),
+          name: _name.val(),
+        };
+
+        if (data.message && data.email) {
+
+          _button.text('{{ page.form.button.sending }}');
+
+          $.ajax({
+            url: "http://formspree.io/{{ page.email }}",
+            method: "POST",
+            dataType: "json",
+            data: data,
+
+            success: function () {
+              setTimeout(function() {
+                _button.text('{{ page.form.button.sent }}');
+              }, 1000);
+            },
+
+            error: function () {
+              _button.text('{{ page.form.button.idle }}');
+            }
+          });
+        }
+      });
+
+    </script>
+
+
+    {% include footer.html %}
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<header>
+  <div class="max-width-container">
+
+
+    {% if page.url != "/" and page.url != "/contact/" %}
+
+      {% assign projects        = site.data.front-page.projects %}
+      {% assign project_count   = projects | size %}
+      {% assign path            = page.url | remove: '/' %}
+
+      {% for project in projects %}
+
+        {% if project.path == path %}
+
+          {% assign prev = forloop.index0 | minus: 1 %}
+          {% assign next = forloop.index0 | plus: 1 %}
+
+          {% if prev < 0 %}
+            {% assign prev = project_count | minus: 1 %}
+          {% endif %}
+
+          {% if next >= project_count %}
+            {% assign next = 0 %}
+          {% endif %}
+
+          {% break %}
+
+        {% endif %}
+
+      {% endfor %}
+
+
+      <a class="prev" href="/{{ projects[prev].path }}">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"/>
+            <path d="M0-.5h24v24H0z" fill="none"/>
+        </svg>
+      </a>
+
+      <a class="next" href="/{{ projects[next].path }}">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/>
+          <path d="M0-.25h24v24H0z" fill="none"/>
+        </svg>
+      </a>
+
+    {% endif %}
+
+    <a class="title" href="/">
+      <img class="hands-up" src="{{ site.paths.images }}/penguin-1.jpg">
+      <img class="hands-down" src="{{ site.paths.images }}/penguin-2.jpg">
+    </a>
+
+    <nav>
+      <div class="max-width-container">
+        <ul>
+          {% for item in site.menu %}
+          <li>
+            <a href="{{ item.link }}" title="{{ item.title }}" {% if page.url == item.link %}class="active"{% endif %}>
+              {{ item.title }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+
+  </div>
+</header>

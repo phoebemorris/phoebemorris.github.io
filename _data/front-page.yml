@@ -1,0 +1,50 @@
+columns: 3
+projects:
+  -
+    path: first-to-the-top
+    title: First to the Top
+    image: sired-top.jpg
+  -
+    path: harold-beamish
+    title: Harold Beamish
+    image: plane.jpg
+  -
+    path: findsomeone
+    title: FindSomeone
+    image: moa-top.jpg
+  -
+    path: concept-art
+    title: Concept Art
+    image: fishtop.jpg
+  -
+    path: royal-squirrel
+    title: Royal Squirrel
+    image: squirrel.jpg
+  -
+    path: pheromone-party
+    title: Pheromone Party
+    image: tee-cover.jpg
+  -
+    path: save-the-date
+    title: Save the Date
+    image: flowerbunch.jpg
+  -
+    path: salient
+    title: Salient
+    image: dotmonkey.jpg
+  -
+    path: peter-and-the-wolf
+    title: Peter and the Wolf
+    image: peterposter.jpg
+  -
+    path: trademe
+    title: Trade Me
+    image: trademe-tee-top.jpg
+  -
+    path: pipes
+    title: In the Pipeline
+    image: pipesposter.jpg
+  -
+    path: queen-and-corgi
+    title: Queen & Corgi
+    image: queen-top.jpg

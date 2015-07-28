@@ -1,0 +1,119 @@
+
+
+@project-grid-padding: 20px;
+
+.projects {
+
+  min-height: 100%;
+
+    padding-bottom: @project-grid-padding;
+
+    font-size: 0;
+
+    .column {
+
+        box-sizing: border-box;
+        display: inline-block;
+
+        padding: 0 @project-grid-padding;
+
+        width: 33.33%;
+
+        .responsive-when-small({
+            width: 100%;
+        });
+
+        .project {
+            text-decoration: none;
+            padding: 0 0 (@project-grid-padding * 2) 0;
+            display: block;
+
+            img {
+                width: 100%;
+                // box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+            }
+
+            .caption {
+                text-align: center;
+                padding-top: 5px;
+                font-size: @base-font-size * 0.75;
+                color: #555;
+            }
+
+            .transition(opacity 0.2s ease-out);
+
+            &:hover {
+                opacity: 0.5;
+            }
+
+        }
+    }
+}
+
+.project-page {
+
+  padding: 0 20px;
+
+    h1 {
+        font-size: @base-font-size * 1.8;
+        .responsive-when-small({
+          font-size: @base-font-size * 1.5;
+        });
+        font-weight: 300;
+        color: #111;
+        margin-bottom: 0px;
+
+        strong {
+          font-weight: 400;
+        }
+    }
+
+    h2 {
+        font-size: @base-font-size * 1.1;
+        .responsive-when-small({
+          font-size: @base-font-size * 0.9;
+        });
+        font-weight: 400;
+        color: #111;
+        margin-top: 5px;
+        margin-bottom: 0px;
+        font-style: italic;
+    }
+
+
+
+    h1, h2 {
+        text-align: center;
+    }
+
+    .project-description {
+      font-size: @base-font-size * 0.9;
+      text-align: center;
+      max-width: @max-project-image-width * 0.50;
+      margin: 0 auto;
+      display: block;
+      margin-top: 20px;
+    }
+
+
+    .images {
+      margin-top: 40px;
+    }
+
+    .image {
+        max-width: @max-project-image-width;
+        margin: 0 auto @project-image-margin-bottom auto;
+
+        &:only-child {
+          margin-bottom: 0;
+        }
+
+        img {
+
+            max-width: 100%;
+
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}

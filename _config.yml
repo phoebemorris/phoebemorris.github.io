@@ -1,0 +1,30 @@
+
+url: http://phoebe.design
+
+paths:
+  images: /assets/images
+  styles: /assets/styles
+
+facebook: https://www.facebook.com/phmodraws
+instagram: https://instagram.com/febe_m
+
+google-analytics: UA-65644208-1
+
+menu:
+  -
+    title: Work
+    link: /
+  -
+    title: Contact
+    link: /contact/
+  -
+    title: Shop
+    link: http://shop.phoebe.design/
+
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: project

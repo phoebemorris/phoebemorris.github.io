@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    <div class="container">
+
+      {% include header.html %}
+
+      <main>
+        <div class="max-width-container">
+          <div class="projects">
+
+            {% assign projects    = site.data.front-page.projects %}
+            {% assign columns     = site.data.front-page.columns %}
+            {% assign per_column  = projects | size | divided_by: columns %}
+            {% assign remainder   = projects | size | modulo: columns %}
+            {% assign offset      = 0 %}
+
+            {% for column in (0..columns) %}
+              <div class="column">
+
+                {% assign limit = per_column %}
+
+                {% if column < remainder %}
+                  {% assign limit = limit | plus: 1 %}
+                {% endif %}
+
+                {% for project in projects limit:limit offset:offset %}
+                  <a class="project" href="{{ project.path }}">
+                      <img src="/assets/images/{{ project.path }}/{{ project.image }}">
+                  </a>
+                {% endfor %}
+
+                {% assign offset = offset | plus: limit %}
+
+              </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </main>
+    </div>
+
+    {% include footer.html %}
+  </body>
+</html>

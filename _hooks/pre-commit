@@ -1,0 +1,3 @@
+#!/bin/sh
+lessc --compress assets/styles/less/app.less assets/styles/css/app.css
+git add assets/styles/css/app.css

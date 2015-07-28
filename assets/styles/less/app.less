@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+p, a, li, div, ul, body {
+    font-size: 1rem;
+}
+
+p, li, pre {
+    // max-width: 720px;
+}
+
+html
+{
+    font-size: 1em;
+    background-color: @clr-white;
+
+    .responsive-when-small({
+        overflow-x: hidden;
+    });
+}
+
+html, body {
+  height: 100%;
+}
+
+.max-width-container {
+    margin: 0 auto;
+    max-width: @max-content-width;
+    // background-color: #eee;
+}
+
+.container {
+  min-height: 100%;
+  margin-bottom: -80px;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 80px;
+  }
+}
+
+hr {
+    margin: 40px 0 20px -40px;
+    max-width: @max-content-width;
+    border: none;
+}
+
+@import "settings";
+@import "imports/header";
+@import "imports/contact";
+@import "imports/nav";
+@import "imports/main";
+@import "imports/footer";
+@import "imports/mixins";
+@import "imports/colors";
+@import "imports/responsive";
+@import "imports/typography";
+@import "imports/headings";
+@import "imports/projects";

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    <div class="container">
+
+      {% include header.html %}
+
+      <main>
+        <div class="max-width-container">
+          <div class="project-page">
+
+          <h1><strong>{{ page.title }}</strong>{% if page.client %} / {{ page.client }}{% endif %}</h1>
+          <!-- <h2>{{ page.client }}</h2> -->
+
+          {% if page.description %}
+            <p class="project-description">{{ page.description }}</p>
+          {% endif %}
+
+          <div class="images">
+            {% for file in page.images %}
+              <div class="image">
+                <img src="/assets/images{{ page.permalink }}{{ file }}">
+              </div>
+            {% endfor %}
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    {% include footer.html %}
+  </body>
+</html>
