@@ -13,31 +13,16 @@
   }
 
   .form {
-    padding-top: 20px;
-  }
-
-  // .responsive-when-medium({
-  //   .form, .details {
-  //     width: 66%;
-  //     display: block;
-  //     padding: 0 20px;
-  //   }
-  //
-  //   .form {
-  //     padding-top: 20px;
-  //   }
-  // });
-
-  .form {
 
     text-align: right;
+    padding-top: 20px;
 
     input, textarea, button {
       outline: none;
       background: none;
       font-size: @base-font-size * 1;
-      border: 2px solid #333;
-
+      border: 2px solid #444;
+      .transition(all 0.1s ease-out);
     }
 
     input, textarea {
@@ -45,6 +30,10 @@
       padding: 15px;
       margin-bottom: 10px;
       resize: vertical;
+
+      &.invalid {
+        border-color: #E53935;
+      }
     }
 
     button {
@@ -60,8 +49,6 @@
       .responsive-when-medium({
         width: 50%;
       });
-
-      .transition(background 0.1s ease-out, color 0.1s ease-out, width 0.1s ease-out;);
 
       &:active {
         background-color: #111;

@@ -38,9 +38,15 @@
       var _email = $('#email');
       var _message = $('#message');
       var _button = $('#send');
+      var _all = $('input, textarea');
 
-      $('input, textarea').focus(function () {
+      function is_valid_email_address(value) {
+        return value && /^([\w-]+\.?[\w-]*)+@([\w-]+\.[\w-]+)+$/.test(value);
+      }
+
+      _all.focus(function () {
         _button.text('{{ page.form.button.idle }}');
+        _all.removeClass('invalid');
       });
 
       $('.contact button').click(function () {
@@ -51,8 +57,19 @@
           name: _name.val(),
         };
 
-        if (data.message && data.email) {
+        if ( ! data.name) {
+          _name.addClass('invalid');
+        }
 
+        if ( ! is_valid_email_address(data.email)) {
+          _email.addClass('invalid');
+        }
+
+        if ( ! data.message) {
+          _message.addClass('invalid');
+        }
+
+        if (_all.filter('.invalid').length == 0) {
           _button.text('{{ page.form.button.sending }}');
 
           $.ajax({
