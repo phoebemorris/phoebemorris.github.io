@@ -13,7 +13,7 @@
               {% for detail in page.contact %}
               <div class="detail">
                 <h3>{{ detail.label }}</h3>
-                <a href="{{ detail.link }}">{{ detail.value }}</a>
+                <a {% if detail.link %}href="{{ detail.link }}"{% endif %}>{{ detail.value }}</a>
               </div>
               {% endfor %}
             </div>
